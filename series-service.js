@@ -51,3 +51,26 @@ export function sortByStartYear(series)
 {
     return series.toSorted((a, b) => a.startYear - b.startYear);
 }
+//C1
+export function renameSeries(series, id, newTitle)
+{
+    return series.map(show=>
+        show.id===id?{...show,title: newTitle}:show
+    );
+}
+//C2
+export function addSeason(series, showId, season) 
+{
+    return series.map(show =>
+        show.id === showId?
+             { ...show, seasons: [...show.seasons, season]}: show);
+}
+//C3
+export function addEpisode(series, showId, seasonNumber, episode) 
+{
+    return series.map(show => show.id === showId?
+         { ...show, seasons: show.seasons.map(season =>
+            season.number === seasonNumber?
+             { ...season, episodes: [...season.episodes, episode] }: season)}
+        : show);
+}
