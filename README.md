@@ -1,1 +1,3 @@
 # series-homework
+1.Because { ...show } only creates a new copy of the show object. The seasons array and the episodes arrays are still connected to the original data. We need to create new objects and arrays for the show, the seasons array, the changed season, and its episodes array so the original data stays unchanged.
+2.The colleague copied only the outer show object using { ...show }. The nested seasons and episodes arrays were still shared with the original show. That's why adding an episode also changed the original data.
